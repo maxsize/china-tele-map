@@ -4,9 +4,10 @@ import MapPin from '../../components/mapPin';
 
 class App extends React.Component {
   render() {
+    const bootstrap: any = {key: 'AIzaSyDxJdkXtvnHSVgG5DUMfv4f0QX1QSv2Yeo', region: 'cn'};
     return <div className="app-wrapper">
       <GoogleMapReact 
-        bootstrapURLKeys={{key: 'AIzaSyDxJdkXtvnHSVgG5DUMfv4f0QX1QSv2Yeo'}}
+        bootstrapURLKeys={bootstrap}
         defaultCenter={{lat: 30.2965033, lng: 104.300964}}
         defaultZoom={16}
         options={{mapTypeId: 'satellite'}}
