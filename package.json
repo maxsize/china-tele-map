@@ -5,7 +5,8 @@
   "main": "index.tsx",
   "scripts": {
     "test": "test",
-    "dev": "webpack-dev-server --config webpack.config.dev.js --open"
+    "dev": "webpack-dev-server --config webpack.config.dev.js --open",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "author": "xiawei.xu",
   "license": "ISC",
