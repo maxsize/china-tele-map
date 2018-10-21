@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "module": "es2015",
+    "sourceMap": true,
+    "watch": true,
+    "jsx": "react",
+    "outDir": "./dist/"
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
