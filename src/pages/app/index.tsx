@@ -1,6 +1,7 @@
 import * as React from 'react';
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
 import MapPin from '../../components/mapPin';
+import GoogleMapReact from '../../components/google-map';
 
 class App extends React.Component {
   render() {
