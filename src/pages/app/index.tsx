@@ -4,7 +4,7 @@ import MapPin from '../../components/mapPin';
 
 class App extends React.Component {
   render() {
-    const bootstrap: any = {key: 'AIzaSyDxJdkXtvnHSVgG5DUMfv4f0QX1QSv2Yeo', region: 'cn'};
+    const bootstrap: any = {key: 'AIzaSyDxJdkXtvnHSVgG5DUMfv4f0QX1QSv2Yeo', region: 'CN'};
     return <div className="app-wrapper">
       <GoogleMapReact 
         bootstrapURLKeys={bootstrap}

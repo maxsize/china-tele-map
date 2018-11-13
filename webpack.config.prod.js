@@ -5,7 +5,7 @@ module.exports = {
   mode: "production",
   entry: "./src/index.tsx",
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: __dirname + "/dist",
     publicPath: '/'
   },
@@ -21,7 +21,7 @@ module.exports = {
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
 
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      // { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
 
       { test: /\.less$/,
         use: [{
@@ -53,12 +53,20 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          enforce: true,
-          chunks: 'all'
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`;
+          },
         }
       }
     }
